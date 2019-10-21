@@ -1,7 +1,7 @@
 /* PC画面の場合 */
 @media (min-width: 992px) {
  body {
-   font-size: 1.0rem;
+   font-size: 4.0rem;
  }
  .pc {
    display: block !important;
@@ -15,7 +15,7 @@
 /* モバイルの場合 */
 @media (max-width: 500px) {
  body {
-   font-size: 0.6rem !important;
+   font-size: 1.5rem !important;
  }
 
  table td,th{
