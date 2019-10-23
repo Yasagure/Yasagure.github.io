@@ -1,3 +1,35 @@
+/* PC画面の場合 */
+@media (min-width: 992px) {
+ body {
+   font-size: 2.0rem;
+ }
+ .pc {
+   display: block !important;
+ }
+
+ .sp {
+   display: none !important;
+  }
+}
+
+/* モバイルの場合 */
+@media (max-width: 500px) {
+ body {
+   font-size: 1.5rem !important;
+ }
+
+ table td,th{
+   padding: 5px !important;
+ }
+
+ .pc {
+   display: none !important;
+}
+
+ .sp {
+   display: block !important;
+ }
+}
 
 /* mixins, variables, etc. */
 
