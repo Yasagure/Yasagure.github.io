@@ -15,6 +15,11 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <!-- chart script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
+
+
   <style>
   .bd-placeholder-img {
     font-size: 1.125rem;
@@ -29,6 +34,13 @@
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }
+
+    canvas {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+
   }
   </style>
   <!-- Custom styles for this template -->
@@ -57,7 +69,6 @@
 
 
   <div class="container">
-
     <div class="row">
       <div class="col-xs-12 col-md-12">
         <h2><a href="/surveys/9">2016年虹貝川</a>　＞　福田新橋の調査データ</h2>
@@ -110,38 +121,39 @@
         <h2>自然なすがた</h2>
         <table class="detail">
           <tr>
-            <td class="key">水の流れはゆたかですか？</td>
+            <td class="key">1.水の流れはゆたかですか？</td>
             <td class="value">3.0</td>
           </tr>
           <tr>
-            <td class="key">岸のようすは自然らしいですか？</td>
+            <td class="key">2.岸のようすは自然らしいですか？</td>
             <td class="value">1.8</td>
           </tr>
           <tr>
-            <td class="key">魚が川をかさのぼれるだろうか？</td>
+            <td class="key">3.魚が川をかさのぼれるだろうか？</td>
             <td class="value">3.0</td>
           </tr>
         </table>
       </div>
 
 
+
       <div class="col-xs-12 col-md-6">
         <h2>豊かな生き物</h2>
         <table class="detail">
           <tr>
-            <td class="key">河原と水辺に植物がはえていますか？</td>
+            <td class="key">1.河原と水辺に植物がはえていますか？</td>
             <td class="value">2.6</td>
           </tr>
           <tr>
-            <td class="key">鳥がいますか？</td>
+            <td class="key">2.鳥がいますか？</td>
             <td class="value">2.2</td>
           </tr>
           <tr>
-            <td class="key">魚がいますか？</td>
+            <td class="key">3.魚がいますか？</td>
             <td class="value">3.0</td>
           </tr>
           <tr>
-            <td class="key">川底に生き物がいますか？</td>
+            <td class="key">4.川底に生き物がいますか？</td>
             <td class="value">2.4</td>
           </tr>
         </table>
@@ -153,15 +165,15 @@
         <h2>水のきれいさ</h2>
         <table class="detail">
           <tr>
-            <td class="key">水は透明ですか？</td>
+            <td class="key">1.水は透明ですか？</td>
             <td class="value">3.0</td>
           </tr>
           <tr>
-            <td class="key">水はくさくないですか？</td>
+            <td class="key">2.水はくさくないですか？</td>
             <td class="value">2.2</td>
           </tr>
           <tr>
-            <td class="key">水はきれいですか？</td>
+            <td class="key">3.水はきれいですか？</td>
             <td class="value">2.2</td>
           </tr>
         </table>
@@ -171,23 +183,23 @@
         <h2>快適な水辺</h2>
         <table class="detail">
           <tr>
-            <td class="key">川やまわりのけしきは美しいですか？</td>
+            <td class="key width="200" ">1.川やまわりのけしきは美しいですか？</td>
             <td class="value">2.2</td>
           </tr>
           <tr>
-            <td class="key">ごみが目につきますか？</td>
+            <td class="key">2.ごみが目につきますか？</td>
             <td class="value">2.0</td>
           </tr>
           <tr>
-            <td class="key">水にふれてみたいですか？</td>
+            <td class="key">3.水にふれてみたいですか？</td>
             <td class="value">1.6</td>
           </tr>
           <tr>
-            <td class="key">どんなにおいを感じますか？</td>
+            <td class="key">4.どんなにおいを感じますか？</td>
             <td class="value">2.0</td>
           </tr>
           <tr>
-            <td class="key">どんな音が聞こえますか？</td>
+            <td class="key">5.どんな音が聞こえますか？</td>
             <td class="value">1.8</td>
           </tr>
         </table>
@@ -199,23 +211,23 @@
         <h2>地域とのつながり</h2>
         <table class="detail">
           <tr>
-            <td class="key">川にまつわる話を聞いたことがありますか？</td>
+            <td class="key">1.川にまつわる話を聞いたことがありますか？</td>
             <td class="value">2.2</td>
           </tr>
           <tr>
-            <td class="key">水辺に近づきやすいですか？</td>
+            <td class="key">2.水辺に近づきやすいですか？</td>
             <td class="value">2.0</td>
           </tr>
           <tr>
-            <td class="key">多くの人が利用していますか？</td>
+            <td class="key">3.多くの人が利用していますか？</td>
             <td class="value">1.8</td>
           </tr>
           <tr>
-            <td class="key">産業などの活用</td>
+            <td class="key">4.産業などの活用</td>
             <td class="value">1.2</td>
           </tr>
           <tr>
-            <td class="key">環境の活動</td>
+            <td class="key">5.環境の活動</td>
             <td class="value">1.6</td>
           </tr>
         </table>
@@ -250,9 +262,170 @@
 
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+
+      <!-- チャート描画キャンバス -->
+      <div><canvas id="myChart"></canvas></div>
+
+      <script>
+
+      // 色の設定
+      var colorSet = {
+        red: 'rgb(255, 99, 132)',
+        orange: 'rgb(255, 159, 64)',
+        yellow: 'rgb(255, 205, 86)',
+        green: 'rgb(75, 192, 192)',
+        blue: 'rgb(54, 162, 235)',
+        purple: 'rgb(153, 102, 255)',
+        grey: 'rgb(201, 203, 207)'
+      };
+
+      // 乱数生成(0～100)
+      var rnd70 = function(){
+        return Math.round(Math.random() * 70);
+      };
+
+      // 色のRGB変換
+      var color = Chart.helpers.color;
+
+      /*
+      * チャートの設定
+      */
+      var config = {
+        type: 'radar',
+        data: {
+          labels: ["1", "2", "3", "4", "5"],
+          datasets: [{
+            label: "自然のすがた",
+            backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+            borderColor: colorSet.red,
+            pointBackgroundColor: colorSet.red,
+            data: [60, 36, 60]
+
+          },{
+            label: "豊かな生き物",
+            backgroundColor: color(colorSet.orange).alpha(0.5).rgbString(),
+            borderColor: colorSet.orange,
+            pointBackgroundColor: colorSet.orange,
+            data: [52, 44, 60, 48]
+
+          },{
+            label: "水のきれいさ",
+            backgroundColor: color(colorSet.yellow).alpha(0.5).rgbString(),
+            borderColor: colorSet.yellow,
+            pointBackgroundColor: colorSet.yellow,
+            data: [60, 44, 44]
+
+          },{
+            label: "快適な水辺",
+            backgroundColor: color(colorSet.green).alpha(0.5).rgbString(),
+            borderColor: colorSet.green,
+            pointBackgroundColor: colorSet.green,
+            data: [44, 40, 32, 40, 36]
+
+          },{
+            label: "地域とのつながり",
+            backgroundColor: color(colorSet.purple).alpha(0.5).rgbString(),
+            borderColor: colorSet.purple,
+            pointBackgroundColor: colorSet.purple,
+            data: [44, 40, 36, 24, 32]
+
+          },{
+            label: "総合平均",
+            backgroundColor: color(colorSet.grey).alpha(0.5).rgbString(),
+            borderColor: colorSet.grey,
+            pointBackgroundColor: colorSet.grey,
+            data: [52, 52, 50, 38, 36]
+
+
+
+          },]
+        },
+        options: {
+          animation:false,
+          showTooltips: false,
+          legend: { position: 'bottom' },
+          title: {
+            display: true,
+            fontSize:20,
+            fontColor:'#666',
+            text: '水環境調査'
+          },
+          scale: {
+            display: true,
+            pointLabels: {
+              fontSize: 15,
+              fontColor: colorSet.yellow
+            },
+            ticks: {
+              display: true,
+              fontSize: 12,
+              fontColor: colorSet.green,
+              min: 0,
+              max: 100,
+              beginAtZero: true
+            },
+            gridLines: {
+              display: true,
+              color: colorSet.yellow
+            }
+          }
+        }
+      };
+
+      /*
+      * チャートの作成
+      */
+      var myRadar = new Chart($("#myChart"), config);
+
+      /*
+      * ランダムデータ（#randomizeData）
+      */
+      $("#randomizeData").click(function(){
+        config.data.datasets.forEach(function(dataset){
+          dataset.data = dataset.data.map(function(){
+            return rnd100();
+          });
+        });
+
+        myRadar.update();
+      });
+
+      var colorNames = Object.keys(colorSet);
+
+      /*
+      * データセットの追加（#addDataset）
+      */
+      $("#addDataset").click(function(){
+        var colorName = colorNames[config.data.datasets.length % colorNames.length];;
+        var newColor = colorSet[colorName];
+
+        var newDataset = {
+          label: 'Dataset ' + config.data.datasets.length,
+          borderColor: newColor,
+          backgroundColor: color(newColor).alpha(0.2).rgbString(),
+          pointBorderColor: newColor,
+          data: [],
+        };
+
+        for (var index=0; index < config.data.labels.length; ++index) {
+          newDataset.data.push(rnd100());
+        }
+
+        config.data.datasets.push(newDataset);
+        myRadar.update();
+      });
+    </script>
+  </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>
