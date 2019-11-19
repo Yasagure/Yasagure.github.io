@@ -58,10 +58,10 @@
           <a class="nav-link" href="accordion_mock.html">トップ </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">登録</a>
+          <a class="nav-link" href="#">趣旨</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">ログイン</a>
+          <a class="nav-link" href="#">ログアウト</a>
         </li>
       </ul>
     </div>
@@ -105,7 +105,7 @@
           </tr>
         </table>
       </div>
-      <div class="col-xs-6 col-md-6">
+      <div class="col-xs-12 col-md-6">
         <table class="basic-info">
           <tr>
             <td>調査日時</td>
@@ -117,29 +117,104 @@
 
 
     <div class="row">
-      <div class="col-xs-12 col-md-6">
+      <div class="col">
+      <div class="col-lg-6 col-xs-12 col-md-6">
+        <table class="table table-responsive table-noscroll table-bordered mx-auto">
         <h2>自然なすがた</h2>
-        <table class="detail">
           <tr>
-            <td class="key">1.水の流れはゆたかですか？</td>
-            <td class="value">3.0</td>
+            <td>1.水の流れはゆたかですか？</td>
+            <td>3.0</td>
           </tr>
           <tr>
-            <td class="key">2.岸のようすは自然らしいですか？</td>
-            <td class="value">1.8</td>
+            <td>2.岸のようすは自然らしいですか？</td>
+            <td>1.8</td>
           </tr>
           <tr>
-            <td class="key">3.魚が川をかさのぼれるだろうか？</td>
-            <td class="value">3.0</td>
+            <td>3.魚が川をかさのぼれるだろうか？</td>
+            <td>3.0</td>
           </tr>
         </table>
+          <!-- チャート描画キャンバス -->
+          <div><canvas id="myChart01"></canvas></div>
+
+          <script>
+
+          // 色の設定
+          var colorSet = {
+            red: 'rgb(255, 99, 132)',
+            orange: 'rgb(255, 159, 64)',
+            yellow: 'rgb(255, 205, 86)',
+            green: 'rgb(75, 192, 192)',
+            blue: 'rgb(54, 162, 235)',
+            purple: 'rgb(153, 102, 255)',
+            grey: 'rgb(201, 203, 207)'
+          };
+
+          // 乱数生成(0～100)
+          var rnd70 = function(){
+            return Math.round(Math.random() * 70);
+          };
+
+          // 色のRGB変換
+          var color = Chart.helpers.color;
+
+          /*
+          * チャートの設定
+          */
+          var config = {
+            type: 'radar',
+            data: {
+              labels: ["1", "2", "3"],
+              datasets: [{
+                backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+                borderColor: colorSet.red,
+                pointBackgroundColor: colorSet.red,
+                data: [60, 36, 60]
+
+              },]
+            },
+            options: {
+              animation:false,
+              showTooltips: false,
+              legend: { position: 'bottom' },
+              scale: {
+                display: true,
+                pointLabels: {
+                  fontSize: 15,
+                  fontColor: colorSet.yellow
+                },
+                ticks: {
+                  display: true,
+                  fontSize: 12,
+                  fontColor: colorSet.green,
+                  min: 0,
+                  max: 100,
+                  beginAtZero: true
+                },
+                gridLines: {
+                  display: true,
+                  color: colorSet.yellow
+                }
+              }
+            }
+          };
+
+          /*
+          * チャートの作成
+          */
+          var myRadar = new Chart($("#myChart01"), config);
+        </script>
       </div>
+    </div>
+  </div>
 
 
 
-      <div class="col-xs-12 col-md-6">
+  <div class="row">
+    <div class="col">
+    <div class="col-lg-6 col-xs-12 col-md-6">
         <h2>豊かな生き物</h2>
-        <table class="detail">
+        <table class="table table-responsive table-noscroll table-bordered mx-auto">
           <tr>
             <td class="key">1.河原と水辺に植物がはえていますか？</td>
             <td class="value">2.6</td>
@@ -159,6 +234,78 @@
         </table>
       </div>
     </div>
+  </div>
+  <!-- チャート描画キャンバス -->
+  <div><canvas id="myChart02"></canvas></div>
+
+  <script>
+
+  // 色の設定
+  var colorSet = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+  };
+
+  // 乱数生成(0～100)
+  var rnd70 = function(){
+    return Math.round(Math.random() * 70);
+  };
+
+  // 色のRGB変換
+  var color = Chart.helpers.color;
+
+  /*
+  * チャートの設定
+  */
+  var config = {
+    type: 'radar',
+    data: {
+      labels: ["1", "2", "3", "4"],
+      datasets: [{
+        backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+        borderColor: colorSet.red,
+        pointBackgroundColor: colorSet.red,
+        data: [60, 36, 60, 40]
+
+      },]
+    },
+    options: {
+      animation:false,
+      showTooltips: false,
+      legend: { position: 'bottom' },
+      scale: {
+        display: true,
+        pointLabels: {
+          fontSize: 15,
+          fontColor: colorSet.yellow
+        },
+        ticks: {
+          display: true,
+          fontSize: 12,
+          fontColor: colorSet.green,
+          min: 0,
+          max: 100,
+          beginAtZero: true
+        },
+        gridLines: {
+          display: true,
+          color: colorSet.yellow
+        }
+      }
+    }
+  };
+
+  /*
+  * チャートの作成
+  */
+  var myRadar = new Chart($("#myChart02"), config);
+</script>
+
 
     <div class="row">
       <div class="col-xs-12 col-md-6">
@@ -266,7 +413,7 @@
     <div class="col-xs-12 col-md-12">
 
       <!-- チャート描画キャンバス -->
-      <div><canvas id="myChart"></canvas></div>
+      <div><canvas id="myChart00"></canvas></div>
 
       <script>
 
@@ -377,7 +524,7 @@
       /*
       * チャートの作成
       */
-      var myRadar = new Chart($("#myChart"), config);
+      var myRadar = new Chart($("#myChart00"), config);
 
       /*
       * ランダムデータ（#randomizeData）
