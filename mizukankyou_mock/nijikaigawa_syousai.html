@@ -117,10 +117,9 @@
 
 
     <div class="row">
-      <div class="col">
-      <div class="col-lg-6 col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-6 col-sm-6">
         <table class="table table-responsive table-noscroll table-bordered mx-auto">
-        <h2>自然なすがた</h2>
+          <h2>自然なすがた</h2>
           <tr>
             <td>1.水の流れはゆたかですか？</td>
             <td>3.0</td>
@@ -134,438 +133,584 @@
             <td>3.0</td>
           </tr>
         </table>
-          <!-- チャート描画キャンバス -->
-          <div><canvas id="myChart01"></canvas></div>
+    </div>
 
-          <script>
+      <div class="col-xs-12 col-md-6 col-sm-6">
+        <!-- チャート描画キャンバス -->
+        <div><canvas id="myChart01"></canvas></div>
 
-          // 色の設定
-          var colorSet = {
-            red: 'rgb(255, 99, 132)',
-            orange: 'rgb(255, 159, 64)',
-            yellow: 'rgb(255, 205, 86)',
-            green: 'rgb(75, 192, 192)',
-            blue: 'rgb(54, 162, 235)',
-            purple: 'rgb(153, 102, 255)',
-            grey: 'rgb(201, 203, 207)'
-          };
+        <script>
 
-          // 乱数生成(0～100)
-          var rnd70 = function(){
-            return Math.round(Math.random() * 70);
-          };
+        // 色の設定
+        var colorSet = {
+          red: 'rgb(255, 99, 132)',
+          orange: 'rgb(255, 159, 64)',
+          yellow: 'rgb(255, 205, 86)',
+          green: 'rgb(75, 192, 192)',
+          blue: 'rgb(54, 162, 235)',
+          purple: 'rgb(153, 102, 255)',
+          grey: 'rgb(201, 203, 207)'
+        };
 
-          // 色のRGB変換
-          var color = Chart.helpers.color;
+        // 乱数生成(0～100)
+        var rnd70 = function(){
+          return Math.round(Math.random() * 70);
+        };
 
-          /*
-          * チャートの設定
-          */
-          var config = {
-            type: 'radar',
-            data: {
-              labels: ["1", "2", "3"],
-              datasets: [{
-                backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
-                borderColor: colorSet.red,
-                pointBackgroundColor: colorSet.red,
-                data: [60, 36, 60]
+        // 色のRGB変換
+        var color = Chart.helpers.color;
 
-              },]
-            },
-            options: {
-              animation:false,
-              showTooltips: false,
-              legend: { position: 'bottom' },
-              scale: {
+        /*
+        * チャートの設定
+        */
+        var config = {
+          type: 'radar',
+          data: {
+            labels: ["1", "2", "3"],
+            datasets: [{
+              backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+              borderColor: colorSet.red,
+              pointBackgroundColor: colorSet.red,
+              data: [60, 36, 60]
+
+            },]
+          },
+          options: {
+            animation:false,
+            showTooltips: false,
+            legend: { display: false },
+            scale: {
+              display: true,
+              pointLabels: {
+                fontSize: 15,
+                fontColor: colorSet.yellow
+              },
+              ticks: {
                 display: true,
-                pointLabels: {
-                  fontSize: 15,
-                  fontColor: colorSet.yellow
-                },
-                ticks: {
-                  display: true,
-                  fontSize: 12,
-                  fontColor: colorSet.green,
-                  min: 0,
-                  max: 100,
-                  beginAtZero: true
-                },
-                gridLines: {
-                  display: true,
-                  color: colorSet.yellow
-                }
+                fontSize: 12,
+                fontColor: colorSet.green,
+                min: 0,
+                max: 100,
+                beginAtZero: true
+              },
+              gridLines: {
+                display: true,
+                color: colorSet.yellow
               }
             }
-          };
+          }
+        };
 
-          /*
-          * チャートの作成
-          */
-          var myRadar = new Chart($("#myChart01"), config);
+        /*
+        * チャートの作成
+        */
+        var myRadar = new Chart($("#myChart01"), config);
         </script>
       </div>
     </div>
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <table class="table table-responsive table-noscroll table-bordered mx-auto">
+      <h2>豊かな生き物</h2>
+      <tr>
+        <td class="key">1.河原と水辺に植物がはえていますか？</td>
+        <td class="value">2.6</td>
+      </tr>
+      <tr>
+        <td class="key">2.鳥がいますか？</td>
+        <td class="value">2.2</td>
+      </tr>
+      <tr>
+        <td class="key">3.魚がいますか？</td>
+        <td class="value">3.0</td>
+      </tr>
+      <tr>
+        <td class="key">4.川底に生き物がいますか？</td>
+        <td class="value">2.4</td>
+      </tr>
+    </table>
   </div>
 
+  <div class="col-xs-12 col-md-6">
+    <!-- チャート描画キャンバス -->
+    <div><canvas id="myChart02"></canvas></div>
 
+    <script>
 
-  <div class="row">
-    <div class="col">
-    <div class="col-lg-6 col-xs-12 col-md-6">
-        <h2>豊かな生き物</h2>
-        <table class="table table-responsive table-noscroll table-bordered mx-auto">
-          <tr>
-            <td class="key">1.河原と水辺に植物がはえていますか？</td>
-            <td class="value">2.6</td>
-          </tr>
-          <tr>
-            <td class="key">2.鳥がいますか？</td>
-            <td class="value">2.2</td>
-          </tr>
-          <tr>
-            <td class="key">3.魚がいますか？</td>
-            <td class="value">3.0</td>
-          </tr>
-          <tr>
-            <td class="key">4.川底に生き物がいますか？</td>
-            <td class="value">2.4</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-  <!-- チャート描画キャンバス -->
-  <div><canvas id="myChart02"></canvas></div>
+    // 色の設定
+    var colorSet = {
+      red: 'rgb(255, 99, 132)',
+      orange: 'rgb(255, 159, 64)',
+      yellow: 'rgb(255, 205, 86)',
+      green: 'rgb(75, 192, 192)',
+      blue: 'rgb(54, 162, 235)',
+      purple: 'rgb(153, 102, 255)',
+      grey: 'rgb(201, 203, 207)'
+    };
 
-  <script>
+    // 乱数生成(0～100)
+    var rnd70 = function(){
+      return Math.round(Math.random() * 70);
+    };
 
-  // 色の設定
-  var colorSet = {
-    red: 'rgb(255, 99, 132)',
-    orange: 'rgb(255, 159, 64)',
-    yellow: 'rgb(255, 205, 86)',
-    green: 'rgb(75, 192, 192)',
-    blue: 'rgb(54, 162, 235)',
-    purple: 'rgb(153, 102, 255)',
-    grey: 'rgb(201, 203, 207)'
-  };
+    // 色のRGB変換
+    var color = Chart.helpers.color;
 
-  // 乱数生成(0～100)
-  var rnd70 = function(){
-    return Math.round(Math.random() * 70);
-  };
+    /*
+    * チャートの設定
+    */
+    var config = {
+      type: 'radar',
+      data: {
+        labels: ["1", "2", "3", "4"],
+        datasets: [{
+          backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+          borderColor: colorSet.red,
+          pointBackgroundColor: colorSet.red,
+          data: [60, 36, 60, 40]
 
-  // 色のRGB変換
-  var color = Chart.helpers.color;
-
-  /*
-  * チャートの設定
-  */
-  var config = {
-    type: 'radar',
-    data: {
-      labels: ["1", "2", "3", "4"],
-      datasets: [{
-        backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
-        borderColor: colorSet.red,
-        pointBackgroundColor: colorSet.red,
-        data: [60, 36, 60, 40]
-
-      },]
-    },
-    options: {
-      animation:false,
-      showTooltips: false,
-      legend: { position: 'bottom' },
-      scale: {
-        display: true,
-        pointLabels: {
-          fontSize: 15,
-          fontColor: colorSet.yellow
-        },
-        ticks: {
+        },]
+      },
+      options: {
+        animation:false,
+        showTooltips: false,
+        legend: { display: false },
+        scale: {
           display: true,
-          fontSize: 12,
-          fontColor: colorSet.green,
-          min: 0,
-          max: 100,
-          beginAtZero: true
-        },
-        gridLines: {
-          display: true,
-          color: colorSet.yellow
-        }
-      }
-    }
-  };
-
-  /*
-  * チャートの作成
-  */
-  var myRadar = new Chart($("#myChart02"), config);
-</script>
-
-
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <h2>水のきれいさ</h2>
-        <table class="detail">
-          <tr>
-            <td class="key">1.水は透明ですか？</td>
-            <td class="value">3.0</td>
-          </tr>
-          <tr>
-            <td class="key">2.水はくさくないですか？</td>
-            <td class="value">2.2</td>
-          </tr>
-          <tr>
-            <td class="key">3.水はきれいですか？</td>
-            <td class="value">2.2</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="col-xs-12 col-md-6">
-        <h2>快適な水辺</h2>
-        <table class="detail">
-          <tr>
-            <td class="key width="200" ">1.川やまわりのけしきは美しいですか？</td>
-            <td class="value">2.2</td>
-          </tr>
-          <tr>
-            <td class="key">2.ごみが目につきますか？</td>
-            <td class="value">2.0</td>
-          </tr>
-          <tr>
-            <td class="key">3.水にふれてみたいですか？</td>
-            <td class="value">1.6</td>
-          </tr>
-          <tr>
-            <td class="key">4.どんなにおいを感じますか？</td>
-            <td class="value">2.0</td>
-          </tr>
-          <tr>
-            <td class="key">5.どんな音が聞こえますか？</td>
-            <td class="value">1.8</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <h2>地域とのつながり</h2>
-        <table class="detail">
-          <tr>
-            <td class="key">1.川にまつわる話を聞いたことがありますか？</td>
-            <td class="value">2.2</td>
-          </tr>
-          <tr>
-            <td class="key">2.水辺に近づきやすいですか？</td>
-            <td class="value">2.0</td>
-          </tr>
-          <tr>
-            <td class="key">3.多くの人が利用していますか？</td>
-            <td class="value">1.8</td>
-          </tr>
-          <tr>
-            <td class="key">4.産業などの活用</td>
-            <td class="value">1.2</td>
-          </tr>
-          <tr>
-            <td class="key">5.環境の活動</td>
-            <td class="value">1.6</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="col-xs-12 col-md-6">
-        <h2>総合平均</h2>
-        <table class="detail">
-          <tr>
-            <td class="key">自然なすがた</td>
-            <td class="value">2.6</td>
-          </tr>
-          <tr>
-            <td class="key">豊かな生き物</td>
-            <td class="value">2.6</td>
-          </tr>
-          <tr>
-            <td class="key">水のきれいさ</td>
-            <td class="value">2.5</td>
-          </tr>
-          <tr>
-            <td class="key">快適な水辺</td>
-            <td class="value">1.9</td>
-          </tr>
-          <tr>
-            <td class="key">地域とのつながり</td>
-            <td class="value">1.8</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-md-12">
-
-      <!-- チャート描画キャンバス -->
-      <div><canvas id="myChart00"></canvas></div>
-
-      <script>
-
-      // 色の設定
-      var colorSet = {
-        red: 'rgb(255, 99, 132)',
-        orange: 'rgb(255, 159, 64)',
-        yellow: 'rgb(255, 205, 86)',
-        green: 'rgb(75, 192, 192)',
-        blue: 'rgb(54, 162, 235)',
-        purple: 'rgb(153, 102, 255)',
-        grey: 'rgb(201, 203, 207)'
-      };
-
-      // 乱数生成(0～100)
-      var rnd70 = function(){
-        return Math.round(Math.random() * 70);
-      };
-
-      // 色のRGB変換
-      var color = Chart.helpers.color;
-
-      /*
-      * チャートの設定
-      */
-      var config = {
-        type: 'radar',
-        data: {
-          labels: ["1", "2", "3", "4", "5"],
-          datasets: [{
-            label: "自然のすがた",
-            backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
-            borderColor: colorSet.red,
-            pointBackgroundColor: colorSet.red,
-            data: [60, 36, 60]
-
-          },{
-            label: "豊かな生き物",
-            backgroundColor: color(colorSet.orange).alpha(0.5).rgbString(),
-            borderColor: colorSet.orange,
-            pointBackgroundColor: colorSet.orange,
-            data: [52, 44, 60, 48]
-
-          },{
-            label: "水のきれいさ",
-            backgroundColor: color(colorSet.yellow).alpha(0.5).rgbString(),
-            borderColor: colorSet.yellow,
-            pointBackgroundColor: colorSet.yellow,
-            data: [60, 44, 44]
-
-          },{
-            label: "快適な水辺",
-            backgroundColor: color(colorSet.green).alpha(0.5).rgbString(),
-            borderColor: colorSet.green,
-            pointBackgroundColor: colorSet.green,
-            data: [44, 40, 32, 40, 36]
-
-          },{
-            label: "地域とのつながり",
-            backgroundColor: color(colorSet.purple).alpha(0.5).rgbString(),
-            borderColor: colorSet.purple,
-            pointBackgroundColor: colorSet.purple,
-            data: [44, 40, 36, 24, 32]
-
-          },{
-            label: "総合平均",
-            backgroundColor: color(colorSet.grey).alpha(0.5).rgbString(),
-            borderColor: colorSet.grey,
-            pointBackgroundColor: colorSet.grey,
-            data: [52, 52, 50, 38, 36]
-
-
-
-          },]
-        },
-        options: {
-          animation:false,
-          showTooltips: false,
-          legend: { position: 'bottom' },
-          title: {
-            display: true,
-            fontSize:20,
-            fontColor:'#666',
-            text: '水環境調査'
+          pointLabels: {
+            fontSize: 15,
+            fontColor: colorSet.yellow
           },
-          scale: {
+          ticks: {
             display: true,
-            pointLabels: {
-              fontSize: 15,
-              fontColor: colorSet.yellow
-            },
-            ticks: {
-              display: true,
-              fontSize: 12,
-              fontColor: colorSet.green,
-              min: 0,
-              max: 100,
-              beginAtZero: true
-            },
-            gridLines: {
-              display: true,
-              color: colorSet.yellow
-            }
+            fontSize: 12,
+            fontColor: colorSet.green,
+            min: 0,
+            max: 100,
+            beginAtZero: true
+          },
+          gridLines: {
+            display: true,
+            color: colorSet.yellow
           }
         }
-      };
+      }
+    };
 
-      /*
-      * チャートの作成
-      */
-      var myRadar = new Chart($("#myChart00"), config);
+    /*
+    * チャートの作成
+    */
+    var myRadar = new Chart($("#myChart02"), config);
+  </script>
+</div>
+</div>
 
-      /*
-      * ランダムデータ（#randomizeData）
-      */
-      $("#randomizeData").click(function(){
-        config.data.datasets.forEach(function(dataset){
-          dataset.data = dataset.data.map(function(){
-            return rnd100();
-          });
-        });
 
-        myRadar.update();
-      });
 
-      var colorNames = Object.keys(colorSet);
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-sm-6">
+    <table class="table table-responsive table-noscroll table-bordered mx-auto">
+      <h2>快適な水辺</h2>
+      <tr>
+        <td>1.川や周りの景色は美しいですか？</td>
+        <td>2.2</td>
+      </tr>
+      <tr>
+        <td>2.ごみが目につきますか？</td>
+        <td>2.0</td>
+      </tr>
+      <tr>
+        <td>3.水に触れてみたいですか？</td>
+        <td>1.6</td>
+      </tr>
+      <tr>
+        <td>4.どんなにおいを感じますか？</td>
+        <td>2.0</td>
+      </tr>
+      <tr>
+        <td>3.どんな音が聞こえますか？</td>
+        <td>1.8</td>
+      </tr>
 
-      /*
-      * データセットの追加（#addDataset）
-      */
-      $("#addDataset").click(function(){
-        var colorName = colorNames[config.data.datasets.length % colorNames.length];;
-        var newColor = colorSet[colorName];
+    </table>
+</div>
 
-        var newDataset = {
-          label: 'Dataset ' + config.data.datasets.length,
-          borderColor: newColor,
-          backgroundColor: color(newColor).alpha(0.2).rgbString(),
-          pointBorderColor: newColor,
-          data: [],
-        };
+  <div class="col-xs-12 col-md-6 col-sm-6">
+    <!-- チャート描画キャンバス -->
+    <div><canvas id="myChart04"></canvas></div>
 
-        for (var index=0; index < config.data.labels.length; ++index) {
-          newDataset.data.push(rnd100());
+    <script>
+
+    // 色の設定
+    var colorSet = {
+      red: 'rgb(255, 99, 132)',
+      orange: 'rgb(255, 159, 64)',
+      yellow: 'rgb(255, 205, 86)',
+      green: 'rgb(75, 192, 192)',
+      blue: 'rgb(54, 162, 235)',
+      purple: 'rgb(153, 102, 255)',
+      grey: 'rgb(201, 203, 207)'
+    };
+
+    // 乱数生成(0～100)
+    var rnd70 = function(){
+      return Math.round(Math.random() * 70);
+    };
+
+    // 色のRGB変換
+    var color = Chart.helpers.color;
+
+    /*
+    * チャートの設定
+    */
+    var config = {
+      type: 'radar',
+      data: {
+        labels: ["1", "2", "3", "4", "5"],
+        datasets: [{
+          backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+          borderColor: colorSet.red,
+          pointBackgroundColor: colorSet.red,
+          data: [66, 60, 48, 60, 54]
+
+        },]
+      },
+      options: {
+        animation:false,
+        showTooltips: false,
+        legend: { display: false },
+        scale: {
+          display: true,
+          pointLabels: {
+            fontSize: 15,
+            fontColor: colorSet.yellow
+          },
+          ticks: {
+            display: true,
+            fontSize: 12,
+            fontColor: colorSet.green,
+            min: 0,
+            max: 100,
+            beginAtZero: true
+          },
+          gridLines: {
+            display: true,
+            color: colorSet.yellow
+          }
         }
+      }
+    };
 
-        config.data.datasets.push(newDataset);
-        myRadar.update();
-      });
+    /*
+    * チャートの作成
+    */
+    var myRadar = new Chart($("#myChart04"), config);
     </script>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-sm-6">
+    <table class="table table-responsive table-noscroll table-bordered mx-auto">
+      <h2>水のきれいさ</h2>
+      <tr>
+        <td>1.水は透明ですか？</td>
+        <td>3.0</td>
+      </tr>
+      <tr>
+        <td>2.水はくさくないですか？</td>
+        <td>2.2</td>
+      </tr>
+      <tr>
+        <td>3.水はキレイですか？</td>
+        <td>2.2</td>
+      </tr>
+    </table>
+</div>
+
+  <div class="col-xs-12 col-md-6 col-sm-6">
+    <!-- チャート描画キャンバス -->
+    <div><canvas id="myChart03"></canvas></div>
+
+    <script>
+
+    // 色の設定
+    var colorSet = {
+      red: 'rgb(255, 99, 132)',
+      orange: 'rgb(255, 159, 64)',
+      yellow: 'rgb(255, 205, 86)',
+      green: 'rgb(75, 192, 192)',
+      blue: 'rgb(54, 162, 235)',
+      purple: 'rgb(153, 102, 255)',
+      grey: 'rgb(201, 203, 207)'
+    };
+
+    // 乱数生成(0～100)
+    var rnd70 = function(){
+      return Math.round(Math.random() * 70);
+    };
+
+    // 色のRGB変換
+    var color = Chart.helpers.color;
+
+    /*
+    * チャートの設定
+    */
+    var config = {
+      type: 'radar',
+      data: {
+        labels: ["1", "2", "3"],
+        datasets: [{
+          backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+          borderColor: colorSet.red,
+          pointBackgroundColor: colorSet.red,
+          data: [60, 44, 44]
+
+        },]
+      },
+      options: {
+        animation:false,
+        showTooltips: false,
+        legend: { display: false },
+        scale: {
+          display: true,
+          pointLabels: {
+            fontSize: 15,
+            fontColor: colorSet.yellow
+          },
+          ticks: {
+            display: true,
+            fontSize: 12,
+            fontColor: colorSet.green,
+            min: 0,
+            max: 100,
+            beginAtZero: true
+          },
+          gridLines: {
+            display: true,
+            color: colorSet.yellow
+          }
+        }
+      }
+    };
+
+    /*
+    * チャートの作成
+    */
+    var myRadar = new Chart($("#myChart03"), config);
+    </script>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-sm-6">
+    <table class="table table-responsive table-noscroll table-bordered mx-auto">
+      <h2>地域とのつながり</h2>
+      <tr>
+        <td>1.川にまつわる話を聞いたことがありますか？</td>
+        <td>2.2</td>
+      </tr>
+      <tr>
+        <td>2.水辺に近づきやすいですか？</td>
+        <td>2.0</td>
+      </tr>
+      <tr>
+        <td>3.多くの人が利用していますか？</td>
+        <td>1.8</td>
+      </tr>
+      <tr>
+        <td>4.産業などの活用</td>
+        <td>1.2</td>
+      </tr>
+      <tr>
+        <td>5.環境の活動</td>
+        <td>1.6</td>
+      </tr>
+
+    </table>
+</div>
+
+  <div class="col-xs-12 col-md-6 col-sm-6">
+    <!-- チャート描画キャンバス -->
+    <div><canvas id="myChart05"></canvas></div>
+
+    <script>
+
+    // 色の設定
+    var colorSet = {
+      red: 'rgb(255, 99, 132)',
+      orange: 'rgb(255, 159, 64)',
+      yellow: 'rgb(255, 205, 86)',
+      green: 'rgb(75, 192, 192)',
+      blue: 'rgb(54, 162, 235)',
+      purple: 'rgb(153, 102, 255)',
+      grey: 'rgb(201, 203, 207)'
+    };
+
+    // 乱数生成(0～100)
+    var rnd70 = function(){
+      return Math.round(Math.random() * 70);
+    };
+
+    // 色のRGB変換
+    var color = Chart.helpers.color;
+
+    /*
+    * チャートの設定
+    */
+    var config = {
+      type: 'radar',
+      data: {
+        labels: ["1", "2", "3", "4", "5"],
+        datasets: [{
+          backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+          borderColor: colorSet.red,
+          pointBackgroundColor: colorSet.red,
+          data: [66, 60, 54, 36, 48]
+
+        },]
+      },
+      options: {
+        animation:false,
+        showTooltips: false,
+        legend: { display: false },
+        scale: {
+          display: true,
+          pointLabels: {
+            fontSize: 15,
+            fontColor: colorSet.yellow
+          },
+          ticks: {
+            display: true,
+            fontSize: 12,
+            fontColor: colorSet.green,
+            min: 0,
+            max: 100,
+            beginAtZero: true
+          },
+          gridLines: {
+            display: true,
+            color: colorSet.yellow
+          }
+        }
+      }
+    };
+
+    /*
+    * チャートの作成
+    */
+    var myRadar = new Chart($("#myChart05"), config);
+    </script>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-sm-6">
+    <table class="table table-responsive table-noscroll table-bordered mx-auto">
+      <h2>総合平均</h2>
+      <tr>
+        <td>1.自然なすがた</td>
+        <td>2.6</td>
+      </tr>
+      <tr>
+        <td>2.豊かな生き物</td>
+        <td>2.6</td>
+      </tr>
+      <tr>
+        <td>3.水のきれいさ</td>
+        <td>2.5</td>
+      </tr>
+      <tr>
+        <td>4.快適な水辺</td>
+        <td>1.9</td>
+      </tr>
+      <tr>
+        <td>5.地域とのつながり</td>
+        <td>1.8</td>
+      </tr>
+
+    </table>
+</div>
+
+  <div class="col-xs-12 col-md-6 col-sm-6">
+    <!-- チャート描画キャンバス -->
+    <div><canvas id="myChart06"></canvas></div>
+
+    <script>
+
+    // 色の設定
+    var colorSet = {
+      red: 'rgb(255, 99, 132)',
+      orange: 'rgb(255, 159, 64)',
+      yellow: 'rgb(255, 205, 86)',
+      green: 'rgb(75, 192, 192)',
+      blue: 'rgb(54, 162, 235)',
+      purple: 'rgb(153, 102, 255)',
+      grey: 'rgb(201, 203, 207)'
+    };
+
+    // 乱数生成(0～100)
+    var rnd70 = function(){
+      return Math.round(Math.random() * 70);
+    };
+
+    // 色のRGB変換
+    var color = Chart.helpers.color;
+
+    /*
+    * チャートの設定
+    */
+    var config = {
+      type: 'radar',
+      data: {
+        labels: ["1", "2", "3", "4", "5"],
+        datasets: [{
+          backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+          borderColor: colorSet.red,
+          pointBackgroundColor: colorSet.red,
+          data: [52, 52, 50, 38, 36]
+
+        },]
+      },
+      options: {
+        animation:false,
+        showTooltips: false,
+        legend: { display: false },
+        scale: {
+          display: true,
+          pointLabels: {
+            fontSize: 15,
+            fontColor: colorSet.yellow
+          },
+          ticks: {
+            display: true,
+            fontSize: 12,
+            fontColor: colorSet.green,
+            min: 0,
+            max: 100,
+            beginAtZero: true
+          },
+          gridLines: {
+            display: true,
+            color: colorSet.yellow
+          }
+        }
+      }
+    };
+
+    /*
+    * チャートの作成
+    */
+    var myRadar = new Chart($("#myChart06"), config);
+    </script>
+  </div>
+</div>
+
+</div>
+
 
 
 
