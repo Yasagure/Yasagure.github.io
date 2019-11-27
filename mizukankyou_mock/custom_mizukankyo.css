@@ -20,15 +20,15 @@
 
 
   .reseach-th-name{
-    width: 100px;
+    width: 70%;
   }
 
   .reseach-th-date{
-    width: 120px;
+    width: 15%;
   }
 
   .reseach-th-person{
-    width: 100px;
+    width: 15%;
   }
 
   .reseach-th-remarks{
@@ -44,19 +44,27 @@
   }
 
   .reseach-th-name{
-    width: 180px;
+    width: 60%;
   }
 
   .reseach-th-date{
-    width: 120px;
+    width: 20%;
   }
 
   .reseach-th-person{
-    width: 150px;
+    width: 10%;
   }
 
   .reseach-th-remarks{
     width: 180px;
+  }
+
+  .details-td-item{
+    width: 90%;
+  }
+
+  .details-td-numeric{
+    width: 10%;
   }
 
 
@@ -121,6 +129,14 @@
 
  .th-name{
    width: 50%;
+ }
+
+ .details-td-item{
+   width: 90%;
+ }
+
+ .details-td-numeric{
+   width: 10%;
  }
 
 
