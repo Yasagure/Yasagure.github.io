@@ -181,6 +181,8 @@ table td a{
  　height:100%;
 }
 
+a:hover { background-color: #afeeee; }
+
 .hoge {
     position: relative;
     z-index: 1; /* 必要であればリンク要素の重なりのベース順序指定 */
